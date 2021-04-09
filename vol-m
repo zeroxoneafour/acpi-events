@@ -1,2 +1,2 @@
 event=button/mute
-action=/etc/acpi/events/volume.sh m
+action=/etc/acpi/handlers/volume.sh m

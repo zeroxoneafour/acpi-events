@@ -1,2 +1,2 @@
 event=button/volumedown
-action=/etc/acpi/events/volume.sh -
+action=/etc/acpi/handlers/volume.sh -
