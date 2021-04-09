@@ -1,19 +1,18 @@
 #! /bin/sh
-logger "input: $2"
-logger "user: USER"
-case "$2" in
-	VOLUP)
+logger "acpi volume control - user: USER"
+case "$1" in
+	+)
 		sudo -u USER XDG_RUNTIME_DIR=/run/user/USERID pactl set-sink-mute @DEFAULT_SINK@ false
 		sudo -u USER XDG_RUNTIME_DIR=/run/user/USERID pactl set-sink-volume @DEFAULT_SINK@ +5%
 		;;
-	VOLDN)
+	-)
 		sudo -u USER XDG_RUNTIME_DIR=/run/user/USERID pactl set-sink-mute @DEFAULT_SINK@ false
 		sudo -u USER XDG_RUNTIME_DIR=/run/user/USERID pactl set-sink-volume @DEFAULT_SINK@ -5%
 		;;
-	MUTE)
+	m)
 		sudo -u USER XDG_RUNTIME_DIR=/run/user/USERID pactl set-sink-mute @DEFAULT_SINK@ toggle
 		;;
 	*)
-		sudo -u USER XDG_RUNTIME_DIR=/run/user/USERID logger "ACPI not volume related: $2"
+		logger "Bad script execution $1 - Use +, -, or m"
 		;;
 esac

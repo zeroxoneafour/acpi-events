@@ -1,2 +1,2 @@
 event=button/volumeup
-action=/etc/acpi/events/volume.sh %e
+action=/etc/acpi/events/volume.sh +
